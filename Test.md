@@ -1,6 +1,6 @@
-# Függőséginjektálás ASP.NET Core környezetben
+﻿# Függőséginjektálás ASP.NET Core környezetben
 
-Remove this line
+Remove this
 
 ## Szerzői jogok
 Benedek Zoltán, 2018
