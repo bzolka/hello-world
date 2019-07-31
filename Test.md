@@ -29,17 +29,14 @@ A példánk "belépési pontja" a `ToDoService` osztály `SendReminderIfNeeded` 
 
 // Teendők kezeléséle szolgáló osztály
 public class ToDoService
-{
-    <b>const string smtpAddress = "smtp.myserver.com";</b>
-    <span style="background-color: #FF0000">Marked text</span>
-    
+{    
     // Megvizsgálja a paraméterként kapott todoItem objektumot, és ha szükséges,
     // e-mail értesítést küld a teendőről a teendőben szereplő kontakt személynek.
     public void SendReminderIfNeeded(TodoItem todoItem)
     {
-        if (checkIfTodoReminderIsToBeSent(todoItem))
+        if (<b>checkIfTodoReminderIsToBeSent(todoItem)</b>)
         { 
-           <span style="background-color: #FF0000">NotificationService</span> notificationService = new NotificationService(smtpAddress);
+            <b>NotificationService</b> notificationService = new NotificationService(smtpAddress);
             notificationService.SendEmailReminder(todoItem.LinkedContactId, todoItem.Name);
         }
     }
@@ -77,7 +74,7 @@ A fenti kódban (`ToDoService.SendReminderIfNeeded`) azt látjuk, hogy az e-mail
 class NotificationService 
 {
     // Az osztály függőségei
-    EMailSender _emailSender;
+    <b>EMailSender _emailSender;<b>
     Logger _logger;
     ContactRepository _contactRepository;
 
