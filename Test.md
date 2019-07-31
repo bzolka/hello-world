@@ -25,20 +25,21 @@ A példánkban egy teendőlista (TODO) kezelő alkalmazás e-mail értesítések
 
 A példánk "belépési pontja" a `ToDoService` osztály `SendReminderIfNeeded` művelete. 
 
-```csharp
+<pre>
 
 // Teendők kezeléséle szolgáló osztály
 public class ToDoService
 {
-    const string smtpAddress = "smtp.myserver.com";
-
+    <b>const string smtpAddress = "smtp.myserver.com";</b>
+    <span style="background-color: #FF0000">Marked text</span>
+    
     // Megvizsgálja a paraméterként kapott todoItem objektumot, és ha szükséges,
     // e-mail értesítést küld a teendőről a teendőben szereplő kontakt személynek.
     public void SendReminderIfNeeded(TodoItem todoItem)
     {
         if (checkIfTodoReminderIsToBeSent(todoItem))
         { 
-            NotificationService notificationService = new NotificationService(smtpAddress);
+           <span style="background-color: #FF0000">NotificationService</span> notificationService = new NotificationService(smtpAddress);
             notificationService.SendEmailReminder(todoItem.LinkedContactId, todoItem.Name);
         }
     }
@@ -51,6 +52,8 @@ public class ToDoService
     }
     // ...
 }
+
+
 
 // Entitásosztály, egy végrehajtandó feladat adatait zárja egységbe
 public class TodoItem
@@ -65,7 +68,7 @@ public class TodoItem
     // kontakt személy hozzárendelve, egyébként pedig a kontakt személy azonosítója.
     public int LinkedContactId { get; set; } = -1;
 }
-```
+</pre>
 
 A fenti kódban (`ToDoService.SendReminderIfNeeded`) azt látjuk, hogy az e-mail küldés lényegi logikáját `NotificationService` osztályban kell keresnünk. Valóban, vizsgálódásunk központjába ez az osztály kerül. A következő kódrészlet ezen osztály kódját, valamint a függőségeit mutatja be:
 
